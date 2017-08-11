@@ -22,6 +22,10 @@ SDL_Texture* texture;
 
 Uint32* pixels;
 
+/* 
+	Does it work for once?
+*/
+
 //Globals
 const int width = 640;
 const int height = 480;
