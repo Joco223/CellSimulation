@@ -12,6 +12,8 @@
 #include "Cell.h"
 #include "Graphics.h"
 #include "Step.h"
+#include "Particle.h"
+#include "ParticleStructure.h"
 
 //SDL Stuff
 SDL_Window* window;
@@ -75,12 +77,6 @@ void updateCells() {
 	if (tick >= maxTick) {
 		cells = Step::updateCells(cells);
 		tick = 0;
-
-		cout << "Hunger: " << cells[0].currentHunger << endl;
-		cout << "Size: " << cells[0].currentSize << endl;
-		cout << "Health:" << cells[0].health << endl;
-		cout << "Status: " << cells[0].state << endl;
-		cout << endl;
 	}
 	tick++;
 }
@@ -114,6 +110,15 @@ int main(int argc, char *argv[]) {
 	test.state = true;
 
 	cells.push_back(test);
+
+	/*ParticleStructure PS(5);
+	PS.createParticleStructure(5, 100, 100);
+	for (int i = 0; i < 5; i++) {
+		for (int j = 0; j < 5; j++) {
+			cout << PS.particles[i * 5 + j].type;
+		}
+		cout << endl;
+	}*/
 
 	while (!quit) {
 		while (SDL_PollEvent(&event)) {
