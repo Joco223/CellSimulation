@@ -1,4 +1,3 @@
-//Jovan was here
 //Standard libraries
 #include <SDL.h>
 #include <stdio.h>
@@ -38,10 +37,10 @@ int tick = 0;
 int maxTick = 100;
 
 //Colors
-int black[3] = {   0,   0,   0 };
+int black[3] = { 0,   0,   0 };
 int   red[3] = { 255,   0,   0 };
-int  blue[3] = {   0,   0, 255 };
-int green[3] = {   0, 255,   0 };
+int  blue[3] = { 0,   0, 255 };
+int green[3] = { 0, 255,   0 };
 
 int Init() {
 	window = NULL;
@@ -52,10 +51,10 @@ int Init() {
 
 	window = SDL_CreateWindow("Cell Simulation", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN);
 	surface = SDL_GetWindowSurface(window);
-	pixelSpace = SDL_CreateRGBSurface(0, width, height, 32, 0x000000ff, 0x0000ff00, 0x00ff0000, 0xff000000);
-	pixels = (Uint32 *)pixelSpace->pixels;
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 	texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STATIC, width, height);
+	pixelSpace = SDL_CreateRGBSurface(0, width, height, 32, 0x000000ff, 0x0000ff00, 0x00ff0000, 0xff000000);
+	pixels = (Uint32 *)pixelSpace->pixels;
 
 	return 0;
 }
@@ -89,14 +88,14 @@ void updateCells() {
 void updateScreen() {
 	updateCells();
 	Draw();
-	
+
 	SDL_UpdateTexture(texture, NULL, pixelSpace->pixels, pixelSpace->pitch);
 	SDL_RenderClear(renderer);
 	SDL_RenderCopy(renderer, texture, NULL, NULL);
 	SDL_RenderPresent(renderer);
 }
 
-int main(int argc, char *argv[]) {	
+int main(int argc, char *argv[]) {
 	bool quit = false;
 
 	SDL_Event event;
