@@ -1,6 +1,3 @@
-// a comment line
-// a second comment line
-
 //Standard libraries
 #include <SDL.h>
 #include <stdio.h>
