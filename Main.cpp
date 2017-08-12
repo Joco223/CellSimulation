@@ -92,6 +92,9 @@ void updateScreen() {
 }
 
 int main(int argc, char *argv[]) {
+	// Flexo's Sandbox
+	FlexosSandbox fsb = FlexosSandbox();
+	
 	bool quit = false;
 
 	SDL_Event event;
